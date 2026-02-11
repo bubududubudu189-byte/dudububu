@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Surprise 💖</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #ffe4b5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.card img {
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: orange;
+    color: white;
+    margin: 5px;
+}
+
+#yesBtn {
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+    0% {transform: scale(1);}
+    25% {transform: scale(1.1);}
+    50% {transform: scale(1);}
+    75% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+}
+
+#next {
+    font-size: 18px;
+    margin-top: 15px;
+    animation: bounce 1s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+}
+
+/* Angry NO */
+#angry {
+    display: none;
+    margin-top: 15px;
+}
+
+#angry img {
+    width: 150px;
+}
+
+/* Gifts */
+#giftsSection {
+    display: none;
+    margin-top: 15px;
+}
+
+.gifts {
+    display: flex;
+    justify-content: space-around;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+#giftsMessage {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #d2691e;
+}
+
+/* Envelope Story */
+#envelopeStory {
+    display: none;
+    margin-top: 15px;
+}
+
+.slide {
+    display: none;
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.slide.active {
+    display: block;
+}
+
+.nav-buttons {
+    margin-top: 10px;
+}
+
+/* Final Hug */
+#finalStage {
+    display: none;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+#finalStage img {
+    width: 200px;
+}
+
+#finalText {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+/* Confetti */
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: orange;
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); }
+    100% { transform: translateY(500px) rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+    <!-- Start page -->
+    <img src="https://i.pinimg.com/originals/8b/7b/2b/8b7b2bfb93e3c6d8b1f2c3d66f9c71d1.gif" id="hugImg">
+    <h1>Will you be my love forever ♾️🫶?</h1>
+    <div id="startButtons">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 💔</button>
+    </div>
+    <div id="angry">
+        <img src="https://i.pinimg.com/originals/5f/9b/78/5f9b78e24c82b7ddcc5e0c89f1f4fdc8.gif">
+        <p>Try again 😤</p>
+    </div>
+
+    <!-- YES message -->
+    <div id="message" style="display:none;">
+        <p><strong>Thanks for choosing me babe ❤️</strong></p>
+        <p><em>(I will be always your torture 👿)</em></p>
+        <div id="next">NEXT ⬇️</div>
+    </div>
+
+    <!-- Gifts -->
+    <div id="giftsSection">
+        <h2>Choose one gift 🎁</h2>
+        <div class="gifts">
+            <span id="gift1">🎁</span>
+            <span id="gift2">🎁</span>
+            <span id="gift3">🎁</span>
+        </div>
+        <div id="giftsMessage"></div>
+    </div>
+
+    <!-- Envelope Story -->
+    <div id="envelopeStory">
+        <h2>Open Your Envelope 🎁</h2>
+        <div id="envelopeSlides">
+            <div class="slide">A rose for you, my life<br>May our love bloom forever 🌹💖</div>
+            <div class="slide">From the depths of my heart, I’ve waited for this moment… 💍</div>
+            <div class="slide">Sweet like chocolate, soft like your touch 🍫💘</div>
+            <div class="slide">A soft hug wrapped in a teddy 🧸… cuddle me forever?</div>
+            <div class="slide">I promise to love, laugh, and be yours forever 💞✨</div>
+            <div class="slide">A kiss for every heartbeat 💋… can you feel it?</div>
+            <div class="slide">A hug from me to you 🤗… tight enough to never let go!</div>
+            <div class="slide">Will you be my Valentine forever ♾️🫶? Yes only 😘</div>
+        </div>
+        <div class="nav-buttons">
+            <button id="prevBtn">⬅️ Prev</button>
+            <button id="nextSlideBtn">Next ➡️</button>
+        </div>
+    </div>
+
+    <!-- Final Stage -->
+    <div id="finalStage">
+        <div id="confetti"></div>
+        <img src="https://i.pinimg.com/originals/8b/7b/2b/8b7b2bfb93e3c6d8b1f2c3d66f9c71d1.gif">
+        <div id="finalText">
+            I love you babe forever ♾️🫶<br>
+            <span>🌹 Under it till this flower dies (it will never…)</span><br>
+            <button id="finalNext">NEXT ❤️</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// Start page buttons
+const noBtn = document.getElementById("noBtn");
+const angry = document.getElementById("angry");
+const yesBtn = document.getElementById("yesBtn");
+const msg = document.getElementById("message");
+const next = document.getElementById("next");
+const giftsSection = document.getElementById("giftsSection");
+const gift1 = document.getElementById("gift1");
+const gift2 = document.getElementById("gift2");
+const gift3 = document.getElementById("gift3");
+const giftsMessage = document.getElementById("giftsMessage");
+const envelopeStory = document.getElementById("envelopeStory");
+
+// Angry NO
+function showAngry() {
+    angry.style.display = "block";
+    msg.style.display = "none";
+}
+noBtn.addEventListener("mouseover", showAngry);
+noBtn.addEventListener("click", showAngry);
+
+// YES click
+yesBtn.addEventListener("click", () => {
+    angry.style.display = "none";
+    msg.style.display = "block";
+    document.getElementById("startButtons").style.display="none";
+});
+
+// NEXT click → gifts
+next.addEventListener("click", () => {
+    msg.style.display = "none";
+    giftsSection.style.display = "block";
+});
+
+// Gifts
+gift1.addEventListener("click", () => { giftsMessage.textContent = "Try another 🎁"; });
+gift3.addEventListener("click", () => { giftsMessage.textContent = "Try another 🎁"; });
+gift2.addEventListener("click", () => {
+    giftsMessage.textContent = "GOOD BABE 😘";
+    // Show envelope story after opening 2nd gift
+    setTimeout(() => {
+        giftsSection.style.display = "none";
+        envelopeStory.style.display = "block";
+        showSlide(currentSlide);
+    }, 1000);
+});
+
+// Envelope swipe system
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.getElementById("prevBtn");
+const nextSlideBtn = document.getElementById("nextSlideBtn");
+
+function showSlide(index) {
+    slides.forEach((slide,i) => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+    prevBtn.style.display = index===0?'none':'inline-block';
+    nextSlideBtn.textContent = index===slides.length-1?'Finish ✅':'Next ➡️';
+}
+prevBtn.addEventListener("click", () => {
+    if(currentSlide>0){ currentSlide--; showSlide(currentSlide); }
+});
+nextSlideBtn.addEventListener("click", () => {
+    if(currentSlide<slides.length-1){
+        currentSlide++; showSlide(currentSlide);
+    } else {
+        // End of envelopes → show final hug
+        envelopeStory.style.display="none";
+        document.getElementById("finalStage").style.display="block";
+        createConfetti();
+    }
+});
+
+// Final NEXT
+document.getElementById("finalNext").addEventListener("click", () => {
+    document.getElementById("finalText").innerHTML="Happy Valentine's Day baby ❤️";
+});
+
+// Confetti
+function createConfetti() {
+    const confettiContainer = document.getElementById("confetti");
+    confettiContainer.innerHTML = '';
+    for(let i=0;i<50;i++){
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti-piece");
+        confetti.style.left = Math.random()*100 + "%";
+        confetti.style.background = hsl(${Math.random()*360}, 100%, 50%);
+        confetti.style.animationDuration = 2 + Math.random()*3 + "s";
+        confetti.style.width = confetti.style.height = 5 + Math.random()*10 + "px";
+        confettiContainer.appendChild(confetti);
+    }
+}
+</script>
+
+</body>
+</html>
